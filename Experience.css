@@ -1,0 +1,144 @@
+.experience-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f5f5f7;
+}
+
+.experience-hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+}
+
+.experience-hero p {
+    font-size: 24px;
+    color: #86868b;
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #d2d2d7;
+    transform: translateX(-50%);
+}
+
+.experience-item {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #0071e3;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.experience-content {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.experience-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #1d1d1f;
+}
+
+.experience-date {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 10px;
+}
+
+.experience-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1f;
+}
+
+.skills {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #1d1d1f;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skills-list li {
+    background-color: #0071e3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: #0077ed;
+}
+
+@media (max-width: 768px) {
+    .experience-hero h1 {
+        font-size: 36px;
+    }
+
+    .experience-hero p {
+        font-size: 20px;
+    }
+
+    .experience-timeline::before {
+        left: 0;
+    }
+
+    .experience-item::before {
+        left: 0;
+    }
+
+    .experience-content {
+        margin-left: 30px;
+    }
+
+    .skills h2 {
+        font-size: 28px;
+    }
+}

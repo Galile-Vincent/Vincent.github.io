@@ -1,0 +1,105 @@
+.award-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.award-hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.award-hero p {
+    font-size: 24px;
+    color: #86868b;
+}
+
+.awards-list {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.award-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.award-icon {
+    font-size: 48px;
+    margin-right: 20px;
+}
+.award-img{
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.award-details h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.award-date {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 10px;
+}
+
+.award-details p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1f;
+}
+.award-link {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: gray;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+.award-link:hover {
+    background-color: #0056b3;
+    /* Adjust hover color as needed */
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .award-hero h1 {
+        font-size: 36px;
+    }
+
+    .award-hero p {
+        font-size: 20px;
+    }
+
+    .award-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .award-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
