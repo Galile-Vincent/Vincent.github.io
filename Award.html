@@ -14,15 +14,29 @@
     <header class="desktop-header">
         <nav>
             <a class="logo" href="./index">Vincent</a>
-            <div class="nav-items">
+            <div class="nav-items desktop-nav">
                 <a href="./Intro">Intro</a>
                 <a href="./Experience">Experience</a>
                 <a href="./Award">Award</a>
                 <a href="./Expertise">Expertise</a>
                 <a href="./Contact">Contact</a>
             </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
+    
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Experience">Experience</a>
+            <a href="./Award">Award</a>
+            <a href="./Expertise">Expertise</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
 
     <main>
         <section class="award-hero">
@@ -46,29 +60,74 @@
             </div>
 
             <div class="award-item">
-                <div class="award-icon">🥇</div>
+                <div class="award-icon">🥈</div>
                 <div class="award-details">
-                    <h2>First Place in Hackathon</h2>
+                    <h2>Second Place in Taipei City 111 School Year Information Application Competition - Smart Model Robots</h2>
+                    <p class="award-date">111 School Year</p>
+                    <p>Designed a smart logistics box.</p>
+                    <a class="award-link" href="https://reurl.cc/blXxdo">Link</a>
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-icon">🏆</div>
+                <div class="award-details">
+                    <h2>Excellence Award in 111 National High School Student Electronics and Information Group Creative Competition
+                    </h2>
+                    <p class="award-date">111 School Year</p>
+                    <p>Designed a smart kitchen controlled by sound information.</p>
+                    <a class="award-link" href="https://reurl.cc/edLGnj">Link</a>
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-icon">🏆</div>
+                <div class="award-details">
+                    <h2>Excellence Award in the 2022 Fifth National High School Student Emerging Technology Smart IoT Creative
+                        Application Competition</h2>
                     <p class="award-date">2022</p>
-                    <p>Led a team to victory in the 48-hour coding challenge, creating a sustainable smart city
-                        solution.</p>
+                    <p>Designed a more advanced smart environmental protection logistics box.</p>
+                    <a class="award-link" href="https://reurl.cc/Zy9Z9V">Link</a>
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-icon">🤖</div>
+                <div class="award-details">
+                    <h2>Participant in 2022 FIRST Robotics Competition (FRC)</h2>
+                    <p class="award-date">2022</p>
+                    <p>Represented school team to participate in the Taiwan regional qualification competition. </p>
+                    <a class="award-link" href="https://www.firstinspires.org/robotics/frc">Link</a>
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-icon">📱</div>
+                <div class="award-details">
+                    <h2>Participant in WWDC23 Swift Student Challenge</h2>
+                    <p class="award-date">2023</p>
+                    <p>Designed the Food Savior App. GitHub link: </p>
+                    <a class="award-link" href="https://reurl.cc/kaZvkn">Link</a>
                 </div>
             </div>
 
-            <div class="award-item">
-                <div class="award-icon">📜</div>
-                <div class="award-details">
-                    <h2>Academic Excellence Scholarship</h2>
-                    <p class="award-date">2021 - Present</p>
-                    <p>Received a full-ride scholarship for outstanding academic performance in Computer Science.</p>
-                </div>
-            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Vincent. All rights reserved.</p>
     </footer>
+<script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+        document.body.classList.toggle('nav-open');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+            document.body.classList.remove('nav-open');
+        }
+    });
+</script>
 </body>
 
 </html>

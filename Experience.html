@@ -14,15 +14,29 @@
     <header class="desktop-header">
         <nav>
             <a class="logo" href="./index">Vincent</a>
-            <div class="nav-items">
+            <div class="nav-items desktop-nav">
                 <a href="./Intro">Intro</a>
                 <a href="./Experience">Experience</a>
                 <a href="./Award">Award</a>
                 <a href="./Expertise">Expertise</a>
                 <a href="./Contact">Contact</a>
             </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
+    
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Experience">Experience</a>
+            <a href="./Award">Award</a>
+            <a href="./Expertise">Expertise</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
 
     <main>
         <section class="experience-hero">
@@ -75,6 +89,17 @@
     <footer>
         <p>&copy; 2024 Vincent. All rights reserved.</p>
     </footer>
+<script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+        document.body.classList.toggle('nav-open');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+            document.body.classList.remove('nav-open');
+        }
+    });
+</script>
 </body>
 
 </html>

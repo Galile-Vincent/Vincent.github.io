@@ -9,7 +9,6 @@ body {
 .desktop-header {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
-    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -206,5 +205,241 @@ footer {
 
     .overview {
         grid-template-columns: 1fr;
+    }
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+/* Styles for mobile navigation button and sheet */
+#nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: relative;
+}
+
+#nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #000;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.nav-sheet {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: 0.3s;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-sheet-content {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-sheet-content a {
+    padding: 15px 0;
+    font-size: 18px;
+    color: #1d1d1f;
+    text-decoration: none;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+body.nav-open .nav-sheet {
+    right: 0;
+}
+
+body.nav-open #nav-toggle span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+body.nav-open #nav-toggle span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+/* New styles for the expertise section */
+.expertise {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.expertise h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.expertise-item {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.expertise-item i {
+    font-size: 48px;
+    color: #0071e3;
+    margin-bottom: 15px;
+}
+
+.expertise-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.expertise-item p {
+    font-size: 16px;
+    color: #86868b;
+}
+
+.preview-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.preview-item h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1d1d1f;
+}
+
+.preview-item p,
+.preview-item ul {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1d1d1f;
+    margin-bottom: 20px;
+}
+
+.preview-item ul {
+    padding-left: 20px;
+}
+
+.preview-item ul li {
+    margin-bottom: 10px;
+}
+
+.preview-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    margin-bottom: 30px;
+    /* Add margin-bottom to create space between items */
+}
+
+.preview-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.preview-content {
+    flex-grow: 1;
+    /* This will push the button to the bottom */
+}
+
+.see-more-button {
+    display: inline-block;
+    background-color: #0071e3;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+    /* Aligns button to the end of the flex container */
+}
+
+.see-more-button:hover {
+    background-color: #0077ed;
+}
+
+.expertise-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.expertise-icons i {
+    font-size: 32px;
+    color: #0071e3;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    #nav-toggle {
+        display: block;
+    }
+
+    .nav-sheet {
+        display: block;
+    }
+
+    .expertise h2 {
+        font-size: 28px;
+    }
+
+    .preview-section {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-item {
+        text-align: center;
+    }
+
+    .expertise-icons {
+        flex-wrap: wrap;
+        gap: 20px;
     }
 }
