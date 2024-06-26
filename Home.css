@@ -426,8 +426,9 @@ body.nav-open #nav-toggle span:nth-child(2) {
 .main-block-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-    margin: 30px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
 }
 .main-block{
     text-decoration: none;
