@@ -435,6 +435,7 @@ body.nav-open #nav-toggle span:nth-child(2) {
     .main-block-container {
         grid-template-columns: 1fr;
         padding: 0 10px;
+        gap: 30px;
     }
 }
 
