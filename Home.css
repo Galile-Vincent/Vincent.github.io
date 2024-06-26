@@ -423,14 +423,22 @@ body.nav-open #nav-toggle span:nth-child(2) {
     color: #0071e3;
 }
 
-.main-block-container{
+.main-block-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin: 60px auto;
     padding: 0 20px;
-    display: grid;
+    gap: 30px;
 }
-.main-block{
+
+@media (max-width: 600px) {
+    .main-block-container {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+.main-block {
     text-decoration: none;
     background-color: #fff;
     border-radius: 18px;
