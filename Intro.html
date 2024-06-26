@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Intro.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
 </head>
 
 <body>
@@ -40,41 +46,42 @@
     
 
     <main>
-        <section class="intro-hero">
+        <section class="intro-hero" data-aos="fade-up">
             <div class="intro-content">
                 <h1>Hung-Yeh Chiang</h1>
                 <p class="subtitle">Vincent</p>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/vincent._0523/" target="_blank"><img src="img/ig.png"
-                            alt="Instagram" class="icon"></a>
+                    <a href="https://www.instagram.com/vincent._0523/" target="_blank"><img src="img/ig.png" alt="Instagram"
+                            class="icon"></a>
                     <a href="https://x.com/Vincent_Galileo" target="_blank"><img src="img/twitter.png" alt="Twitter"
                             class="icon"></a>
                 </div>
             </div>
             <img src="img/image.png" alt="Vincent" class="profile-image">
         </section>
-
-        <section class="intro-text">
+        
+        <section class="intro-text" data-aos="fade-up">
             <p>My name is HungYeh Chiang, and I hail from NeiHu Senior High School's Computer Science Special Class.
                 This marks the inception of my coding journey. My fascination with coding ignited in 2022 upon delving
                 into the stories of tech visionaries such as Elon Musk and Steve Jobs, who have remained my idols ever
                 since.</p>
-
+        
             <p>Over the past three years, my coding journey has solidified my resolve to pursue Information Science as
                 my field of study. My aspirations lead me to delve deeper into Artificial Intelligence and algorithms,
                 preparing myself for the future landscape of technological advancement.</p>
-
+        
             <p>During my college tenure, I aim to utilize my free time to engage in internships, thereby garnering
                 invaluable practical experience. Additionally, I intend to actively participate in various activities
                 and competitions to further hone my development skills. Moreover, I am keen on enrolling in
                 business-related courses to refine my acumen in business management.</p>
-
+        
             <p>Every endeavor I undertake is geared towards realizing my dream of establishing a tech company that
                 contributes positively to our planet. Post-graduation, should my startup venture flourish, I will
                 dedicate myself to its continuous growth. However, if the timing isn't conducive for my entrepreneurial
                 pursuits, I am inclined to seek employment as a software engineer to glean insights into corporate
                 dynamics and operations.</p>
         </section>
+
         <script>
             window.embeddedChatbotConfig = {
                 chatbotId: "P4JIbBVyJX9NpYdzsGInS",
@@ -99,6 +106,15 @@
         }
     });
 </script>
+<script>
+    AOS.init({
+        duration: 1000, // Duration of the animation in milliseconds
+        easing: 'ease-in-out', // Easing function for the animation
+        once: true, // Whether animation should happen only once - while scrolling down
+        mirror: false // Whether elements should animate out while scrolling past them
+    });
+</script>
+
 </body>
 
 </html>

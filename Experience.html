@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Experience.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
 
 <body>
@@ -40,12 +45,12 @@
 
     <main>
         <section class="experience-hero">
-            <h1>Expertise</h1>
+            <h1>Experience</h1>
             <p>Driving innovation and fostering collaboration</p>
         </section>
 
         <section class="experience-timeline">
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up">
                 <div class="experience-content">
                     <h2>President, NHSH Robotics Club</h2>
                     <p class="experience-date">2022 - 2023</p>
@@ -54,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up">
                 <div class="experience-content">
                     <h2>Team Leader, NHCS Presentation Tech Team</h2>
                     <p class="experience-date">2022 - 2023</p>
@@ -63,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item" data-aos="fade-up">
                 <div class="experience-content">
                     <h2>JetFi Mobile App Developement Engineer</h2>
                     <p class="experience-date">2024 Summer</p>
@@ -108,6 +113,15 @@
         }
     });
 </script>
+<script>
+    AOS.init({
+        duration: 1200, // Duration of the animation in milliseconds
+        easing: 'ease-in-out', // Easing function for the animation
+        once: false, // Animation should happen every time the element comes into view
+        mirror: true // Whether elements should animate out while scrolling past them
+    });
+</script>
+
 </body>
 
 </html>

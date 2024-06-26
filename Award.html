@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Award.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
 
 <body>
@@ -38,19 +43,18 @@
     </header>
 
     <main>
-        <section class="award-hero">
+        <section class="award-hero" data-aos="fade-up">
             <h1>Awards & Achievements</h1>
             <p>Recognizing excellence in technology and innovation</p>
         </section>
 
         <section class="awards-list">
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon"><img src="img/swift.png" class="award-img"></div>
                 <div class="award-details">
                     <h2>WWDC24 SWift Student Challenge</h2>
                     <p class="award-date">2024</p>
-                    <p>Awarded for developing a groundbreaking AI-driven solution at the National Tech Innovation
-                        Competition.</p>
+                    <p></p>
                     <a class="award-link" href="https://technews.tw/2024/05/24/wwdc24-swift-student-challenge/">Tech News</a>
                     <a class="award-link" href="https://tw.news.yahoo.com/apple-swift-student-challenge-taiwan-winner-interview-093520650.html">Yahoo新聞</a>
                     <a class="award-link" href="https://udn.com/news/story/7266/7989565">聯合新聞</a>
@@ -58,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon">🥈</div>
                 <div class="award-details">
                     <h2>Second Place in Taipei City 111 School Year Information Application Competition - Smart Model Robots</h2>
@@ -68,7 +72,7 @@
                 </div>
             </div>
             
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon">🏆</div>
                 <div class="award-details">
                     <h2>Excellence Award in 111 National High School Student Electronics and Information Group Creative Competition
@@ -79,7 +83,7 @@
                 </div>
             </div>
             
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon">🏆</div>
                 <div class="award-details">
                     <h2>Excellence Award in the 2022 Fifth National High School Student Emerging Technology Smart IoT Creative
@@ -90,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon">📱</div>
                 <div class="award-details">
                     <h2>Participant in WWDC23 Swift Student Challenge</h2>
@@ -100,7 +104,7 @@
                 </div>
             </div>
             
-            <div class="award-item">
+            <div class="award-item" data-aos="fade-up">
                 <div class="award-icon">🤖</div>
                 <div class="award-details">
                     <h2>Participant in 2022 FIRST Robotics Competition (FRC)</h2>
@@ -135,6 +139,15 @@
         }
     });
 </script>
+<script>
+    AOS.init({
+        duration: 950, // Duration of the animation in milliseconds
+        easing: 'ease-in-out', // Easing function for the animation
+        once: false, // Animation should happen every time the element comes into view
+        mirror: false // Whether elements should animate out while scrolling past them
+    });
+</script>
+
 </body>
 
 </html>

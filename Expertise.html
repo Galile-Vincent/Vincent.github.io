@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Expertise.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
 
 <body>
@@ -46,7 +51,7 @@
         </section>
 
         <section class="expertise-list">
-            <div class="expertise-item">
+            <div class="expertise-item"  data-aos="fade-up">
                 <div class="expertise-icon"><img src="img/python.png" class="expertise-img" alt="Python"></div>
                 <div class="expertise-details">
                     <h2>Python</h2>
@@ -54,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="expertise-item">
+            <div class="expertise-item"  data-aos="fade-up">
                 <div class="expertise-icon"><img src="img/swift.png" class="expertise-img" alt="Swift"></div>
                 <div class="expertise-details">
                     <h2>Swift</h2>
@@ -62,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="expertise-item">
+            <div class="expertise-item"  data-aos="fade-up">
                 <div class="expertise-icon"><img src="img/java.png" class="expertise-img" alt="Java"></div>
                 <div class="expertise-details">
                     <h2>Java</h2>
@@ -70,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="expertise-item">
+            <div class="expertise-item"  data-aos="fade-up">
                 <div class="expertise-icon"><img src="img/c.png" class="expertise-img" alt="C/C++"></div>
                 <div class="expertise-details">
                     <h2>C/C++</h2>
@@ -78,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="expertise-item">
+            <div class="expertise-item" data-aos="fade-up">
                 <div class="expertise-icon"><img src="img/html.png" class="expertise-img" alt="HTML & CSS"></div>
                 <div class="expertise-details">
                     <h2>HTML & CSS</h2>
@@ -108,6 +113,14 @@
         if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
             document.body.classList.remove('nav-open');
         }
+    });
+</script>
+<script>
+    AOS.init({
+        duration: 1000, // Duration of the animation in milliseconds
+        easing: 'ease-in-out', // Easing function for the animation
+        once: false, // Whether animation should happen only once - while scrolling down
+        mirror: false // Whether elements should animate out while scrolling past them
     });
 </script>
 </body>

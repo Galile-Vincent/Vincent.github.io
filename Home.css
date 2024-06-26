@@ -423,6 +423,226 @@ body.nav-open #nav-toggle span:nth-child(2) {
     color: #0071e3;
 }
 
+.main-block-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin: 30px;
+}
+.main-block{
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+}
+.main-block-pic-1{
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/vc.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+.main-block-pic-1:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block-pic-2 {
+    background-image: url('img/steve.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+}
+
+.main-block-pic-2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block-call {
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/call.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    min-height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+    background-size: 50%;
+    /* Adjust the percentage as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-block-call:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block-award {
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/ssc.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    min-height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+    background-size: 65%;
+    /* Adjust the percentage as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-block-award:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block-experience {
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/unlimited.png');
+    background-size: 70%;
+    /* Adjust the percentage as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Prevents image repetition */
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    min-height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+}
+
+.main-block-experience:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+
+.main-block-expertise {
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/code.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    min-height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+    background-size: 70%;
+    /* Adjust the percentage as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-block-expertise:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
+.main-block-pic-1,
+h1 {
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+.main-block-call,
+h1 {
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+.main-block-award,
+h1 {
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+.main-block-pic-2,
+h1 {
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+.main-block-experience,
+h1 {
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+
+.main-block-expertise,
+h1{
+    color: #1d1d1f;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .007em;
+    line-height: 1.1428571429;
+    padding: 20px;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .desktop-nav {
@@ -453,4 +673,19 @@ body.nav-open #nav-toggle span:nth-child(2) {
         flex-wrap: wrap;
         gap: 20px;
     }
+}
+
+.quote{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: #6c6666;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
