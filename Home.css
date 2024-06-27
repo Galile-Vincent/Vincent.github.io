@@ -591,66 +591,15 @@ body.nav-open #nav-toggle span:nth-child(2) {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
 }
-.main-block-pic-1,
-h1 {
-    color: #1d1d1f;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: .007em;
-    line-height: 1.1428571429;
-    padding: 20px;
-}
-.main-block-call,
-h1 {
-    color: #1d1d1f;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: .007em;
-    line-height: 1.1428571429;
-    padding: 20px;
-}
-.main-block-award,
-h1 {
-    color: #1d1d1f;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: .007em;
-    line-height: 1.1428571429;
-    padding: 20px;
-}
-.main-block-pic-2,
-h1 {
-    color: #1d1d1f;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: .007em;
-    line-height: 1.1428571429;
-    padding: 20px;
-}
-.main-block-experience,
-h1 {
-    color: #1d1d1f;
-    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: .007em;
-    line-height: 1.1428571429;
-    padding: 20px;
-}
 
-.main-block-expertise,
-h1{
+.appx{
     color: #1d1d1f;
     font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 28px;
     font-weight: 600;
     letter-spacing: .007em;
     line-height: 1.1428571429;
-    padding: 20px;
+    padding: 35px;
 }
 
 /* Media query for mobile devices */
