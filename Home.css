@@ -491,6 +491,30 @@ body.nav-open #nav-toggle span:nth-child(2) {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
 }
+.main-block-projects {
+    text-decoration: none;
+    background-color: white;
+    background-image: url('img/code.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+    box-shadow: 2px 4px 12px #00000014;
+    flex-direction: column;
+    min-height: 29.4117647059rem;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    white-space: normal;
+    background-size: 50%;
+    /* Adjust the percentage as needed */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-block-projects:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, .7, 0.15);
+}
 .main-block-call {
     text-decoration: none;
     background-color: white;
