@@ -7,6 +7,7 @@
     <title>Vincent | Home</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Weather.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
 </head>
 
@@ -16,6 +17,7 @@
             <a href="./Intro">Intro</a>
             <a href="./Experience">Experience</a>
             <a href="./Award">Award</a>
+            <a href="./Projects">Projects</a>
             <a href="./Expertise">Expertise</a>
             <a href="./Contact">Contact</a>
         </div>
@@ -48,11 +50,11 @@
             <div class="update">*More Updates Are On The Way.</div>
         </section>
         <section class="main-block-container">
+            
             <a href= "./Intro" class="main-block-pic-1">
                 <div class="appx">About Me</div>
                 <p></p>
             </a>
-
             <a href="./Expertise" class="main-block-expertise">
                 <div class="appx">Expertise</div>
                 <p></p>
@@ -78,6 +80,14 @@
                 <p></p>
             </a>
         </section>
+        <div class="tomorrow" data-location-id="" data-language="EN" data-unit-system="METRIC" data-skin="light"
+            data-widget-type="upcoming" style="padding-bottom:22px;position:relative; margin: 15px;">
+            <a href="https://www.tomorrow.io/weather-api/" rel="nofollow noopener noreferrer" target="_blank"
+                style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                <img alt="Powered by the Tomorrow.io Weather API"
+                    src="https://weather-website-client.tomorrow.io/img/powered-by.svg" width="250" height="18" />
+            </a>
+        </div>
 
         <!-- Chat Bot -->
         <script>
@@ -105,6 +115,22 @@
                 document.body.classList.remove('nav-open');
             }
         });
+    </script>
+    <script>
+        (function (d, s, id) {
+            if (d.getElementById(id)) {
+                if (window.__TOMORROW__) {
+                    window.__TOMORROW__.renderWidget();
+                }
+                return;
+            }
+            const fjs = d.getElementsByTagName(s)[0];
+            const js = d.createElement(s);
+            js.id = id;
+            js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+            fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'tomorrow-sdk');
     </script>
 </body>
 

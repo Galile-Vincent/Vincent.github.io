@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent | Project Details</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Project.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="desktop-header">
+        <nav>
+            <a class="logo" href="./index">Vincent</a>
+            <div class="nav-items desktop-nav">
+                <a href="./Intro">Intro</a>
+                <a href="./Experience">Experience</a>
+                <a href="./Award">Award</a>
+                <a href="./Projects">Projects</a>
+                <a href="./Expertise">Expertise</a>
+                <a href="./Contact">Contact</a>
+            </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-details">
+            <h1 id="project-title">MyGoal App</h1>
+            <img id="project-image" src="img/MyGoal_Cover.png">
+            <p id="project-description">In Taiwan, the education system is rigorous, with a focus on exams. The GSAT exam determines college admissions, leading
+            students to spend much of their childhood studying for it. This often comes at the expense of learning new skills and
+            pursuing personal interests.</p>
+            <p>As I observe them for the past few years, I notice a concerning trend: many lack a clear vision for the future. Their
+            focus seems fixed on school selection and scores, with aspirations revolving around desired colleges rather than genuine
+            interests. This realization prompts me to consider how I might assist them in reflecting on their goals and devising
+            strategies to achieve them.</p>
+            <p>
+                The Goal app is designed to facilitate deep introspection and goal setting. It guides users to consider their life
+            goals, identify necessary steps and actions, and incorporates motivational quotes. With the Goal app, students can shift
+            their focus from studying for rankings to shaping their futures and striving toward personal aspirations.
+            </p>
+            <div id="project-technologies">
+                <h2>Source Code</h2>
+                <ul id="tech-list"></ul>
+            </div>
+            <a id="project-link" href="#" target="_blank" class="cta-button">GitHub</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vincent. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add your navigation toggle script here
+
+        // Script to load project details based on URL parameter
+        function loadProjectDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+
+            // Here you would typically fetch project details from a server
+            // For this example, we'll use a simple object
+            const projectDetails = {
+                1: {
+                    title: "Project 1",
+                    image: "path/to/project1-image.jpg",
+                    description: "Detailed description of Project 1",
+                    technologies: ["HTML", "CSS", "JavaScript"],
+                    link: "https://project1.com"
+                },
+                2: {
+                    title: "Project 2",
+                    image: "path/to/project2-image.jpg",
+                    description: "Detailed description of Project 2",
+                    technologies: ["React", "Node.js", "MongoDB"],
+                    link: "https://project2.com"
+                }
+            };
+
+            const project = projectDetails[projectId];
+            if (project) {
+                document.getElementById('project-title').textContent = project.title;
+                document.getElementById('project-image').src = project.image;
+                document.getElementById('project-description').textContent = project.description;
+                const techList = document.getElementById('tech-list');
+                project.technologies.forEach(tech => {
+                    const li = document.createElement('li');
+                    li.textContent = tech;
+                    techList.appendChild(li);
+                });
+                document.getElementById('project-link').href = project.link;
+            }
+        }
+
+        loadProjectDetails();
+    </script>
+</body>
+
+</html>
