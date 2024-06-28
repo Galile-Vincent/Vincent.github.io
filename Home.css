@@ -494,7 +494,7 @@ body.nav-open #nav-toggle span:nth-child(2) {
 .main-block-projects {
     text-decoration: none;
     background-color: white;
-    background-image: url('img/code.png');
+    background-image: url('img/folder.png');
     background-size: cover;
     background-position: center;
     border-radius: 18px;
