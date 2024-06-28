@@ -12,6 +12,17 @@
 </head>
 
 <body>
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Experience">Experience</a>
+            <a href="./Award">Award</a>
+            <a href="./Projects">Projects</a>
+            <a href="./Expertise">Expertise</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
+    
     <header class="desktop-header">
         <nav>
             <a class="logo" href="./index">Vincent</a>
@@ -50,7 +61,7 @@
                 <h2>Source Code</h2>
                 <ul id="tech-list"></ul>
             </div>
-            <a id="project-link" href="#" target="_blank" class="cta-button">GitHub</a>
+            <a href="https://github.com/Galile-Vincent/WWDC24-GoalApp" target="_blank" class="cta-button">GitHub</a>
         </section>
     </main>
 
@@ -59,48 +70,15 @@
     </footer>
 
     <script>
-        // Add your navigation toggle script here
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('nav-open');
+        });
 
-        // Script to load project details based on URL parameter
-        function loadProjectDetails() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectId = urlParams.get('id');
-
-            // Here you would typically fetch project details from a server
-            // For this example, we'll use a simple object
-            const projectDetails = {
-                1: {
-                    title: "Project 1",
-                    image: "path/to/project1-image.jpg",
-                    description: "Detailed description of Project 1",
-                    technologies: ["HTML", "CSS", "JavaScript"],
-                    link: "https://project1.com"
-                },
-                2: {
-                    title: "Project 2",
-                    image: "path/to/project2-image.jpg",
-                    description: "Detailed description of Project 2",
-                    technologies: ["React", "Node.js", "MongoDB"],
-                    link: "https://project2.com"
-                }
-            };
-
-            const project = projectDetails[projectId];
-            if (project) {
-                document.getElementById('project-title').textContent = project.title;
-                document.getElementById('project-image').src = project.image;
-                document.getElementById('project-description').textContent = project.description;
-                const techList = document.getElementById('tech-list');
-                project.technologies.forEach(tech => {
-                    const li = document.createElement('li');
-                    li.textContent = tech;
-                    techList.appendChild(li);
-                });
-                document.getElementById('project-link').href = project.link;
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+                document.body.classList.remove('nav-open');
             }
-        }
-
-        loadProjectDetails();
+        });
     </script>
 </body>
 
