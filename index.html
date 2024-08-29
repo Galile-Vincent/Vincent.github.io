@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Home.css">
     <link rel="stylesheet" href="Weather.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -45,43 +46,75 @@
         <section class="hero">
             <h1>Welcome to Vincent's World</h1>
             <p>Aspiring developer, tech enthusiast, and future innovator</p>
-            <p>Displine, Humble, Confidence</p>
+            <p>Discipline, Humble, Confidence</p>
             <q class="quote">"I can do all things"</q>
-            <a href="./Intro" class="cta-button">See More</a>
+            <a href="./Intro" class="cta-button">Learn More</a>
+            <div class="social-links">
+                <a href="https://instagram.com/vincent._0523" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/Vincent_Galileo" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/Galile-Vincent" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </section>
 
-        <section class="vincent-profile">
-            <div class="vincent-profile__intro">
-                <h2>Quick Intro</h2>
-                <p>My name is HungYeh Chiang, a Computer Science Special Class student from NeiHu Senior High School. I began coding in
-                2022 inspired by tech visionaries like Elon Musk and Steve Jobs.<br><br>
-                
-                I’m pursuing an Information Science degree with a focus on Artificial Intelligence and algorithms, gaining practical
-                experience through internships and competitions. I’ll also take business-related courses to enhance my business
-                management skills.<br><br>
-                
-                My goal is to establish a tech company that positively impacts the world. After graduation, I’ll grow my startup, but if
-                that fails, I’ll transition into software engineering to gain insights into corporate dynamics and operations.
-</p>
+        <div class="resume-container">
+            <div class="resume-left-column">
+                <section class="resume-section">
+                    <h2 class="resume-h2">Quick Intro</h2>
+                    <p class="resume-p">My name is HungYeh Chiang, a Computer Science Special Class student from NeiHu Senior
+                        High School. I
+                        began coding in 2022 inspired by tech visionaries like Elon Musk and Steve Jobs.</p>
+                    <p class="resume-p">I'm pursuing an Information Science degree with a focus on Artificial Intelligence and
+                        algorithms,
+                        gaining practical experience through internships and competitions. I'll also take business-related
+                        courses to enhance my business management skills.</p>
+                    <p class="resume-p">My goal is to establish a tech company that positively impacts the world. After
+                        graduation, I'll grow my
+                        startup, but if that fails, I'll transition into software engineering to gain insights into corporate
+                        dynamics and operations.</p>
+                </section>
             </div>
-            <div class="vincent-profile__experience">
-                <h2>Experience Highlights</h2>
-                <ul>
-                    <li><span class="experience-item__company">JetFi Mobile</span> - <span
-                            class="experience-item__role">App Engineer</span> <span class="experience-item__year">2024 June~Now</span></li>
-                    <li><span class="experience-item__company">WWDC Swift Student Challenge Winner</span> - <span
-                            class="experience-item__role">MyGoal App</span> <span class="experience-item__year">2024</span></li>
-                </ul>
-                <h2><br><br>Expertise</h2>
-                <ul>
-                    <li><span class="experience-item__company">SwiftUI</span> - <span class="experience-item__year">4 years</span></li>
-                    <li><span class="experience-item__company">Java</span> - <span class="experience-item__year">5 years</span></li>
-                    <li><span class="experience-item__company">C</span> - <span class="experience-item__year">5 years</span></li>
-                    <li><span class="experience-item__company">Python</span> - <span class="experience-item__year">3 years</span></li>
-                </ul>
-            </div>
-        </section>
         
+            <div class="resume-right-column">
+                <section class="resume-section">
+                    <h2 class="resume-h2">Experience Highlights</h2>
+                    <ul class="resume-ul">
+                        <li class="resume-li">
+                            <span class="resume-experience-item__company">JetFi Mobile</span> -
+                            <span class="resume-experience-item__role">App Engineer</span>
+                            <span class="resume-experience-item__year">2024 June~Now</span>
+                        </li>
+                        <li class="resume-li">
+                            <span class="resume-experience-item__company">WWDC Swift Student Challenge Winner</span> -
+                            <span class="resume-experience-item__role">MyGoal App</span>
+                            <span class="resume-experience-item__year">2024</span>
+                        </li>
+                    </ul>
+                </section>
+        
+                <section class="resume-section">
+                    <h2 class="resume-h2">Expertise</h2>
+                    <ul class="resume-ul">
+                        <li class="resume-li"><span class="resume-experience-item__company">SwiftUI</span> - <span
+                                class="resume-experience-item__year">3 years</span></li>
+                        <li class="resume-li"><span class="resume-experience-item__company">Java</span> - <span
+                                class="resume-experience-item__year">3 years</span></li>
+                        <li class="resume-li"><span class="resume-experience-item__company">C</span> - <span
+                                class="resume-experience-item__year">4 years</span></li>
+                        <li class="resume-li"><span class="resume-experience-item__company">Python</span> - <span
+                                class="resume-experience-item__year">4 years</span></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        
+        <!--
         <section class="main-block-container">
             
             <a href= "./Intro" class="main-block-pic-1">
@@ -126,6 +159,7 @@
                     src="https://weather-website-client.tomorrow.io/img/powered-by.svg" width="250" height="18" />
             </a>
         </div>
+        -->
 
         <!-- Chat Bot 
         <script>
@@ -155,6 +189,7 @@
             }
         });
     </script>
+    <!---
     <script>
         (function (d, s, id) {
             if (d.getElementById(id)) {
@@ -170,7 +205,9 @@
 
             fjs.parentNode.insertBefore(js, fjs);
         })(document, 'script', 'tomorrow-sdk');
+        
     </script>
+    -->
 </body>
 
 </html>

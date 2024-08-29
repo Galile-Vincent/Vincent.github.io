@@ -759,66 +759,89 @@ body.nav-open #nav-toggle span:nth-child(2) {
  
 
  
- .vincent-profile {
-     display: flex;
-     justify-content: space-between;
-     padding: 4rem 2rem;
-     background-color: #ffffff;
-     margin: 2rem auto;
-     max-width: 1200px;
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-     border-radius: 12px;
- }
+.resume-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    line-height: 25px;
+}
 
- .vincent-profile__intro,
- .vincent-profile__experience {
-     flex-basis: 48%;
- }
+.resume-left-column,
+.resume-right-column {
+    flex: 1;
+}
 
- .vincent-profile h2 {
-     font-size: 2rem;
-     font-weight: 600;
-     color: #1d1d1f;
-     margin-bottom: 1.5rem;
- }
+.resume-section {
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
 
- .vincent-profile p,
- .vincent-profile li {
-     font-size: 1.1rem;
-     line-height: 1.5;
-     color: #515154;
- }
+.resume-h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
 
- .vincent-profile__experience ul {
-     list-style-type: none;
-     padding: 0;
- }
+.resume-p{
+    margin-bottom: 15px;
+}
 
- .vincent-profile__experience li {
-     margin-bottom: 1rem;
- }
+.resume-p,
+.resume-li {
+    font-size: 1.1rem;
+    color: #515154;
+}
 
- .experience-item__company {
-     font-weight: 600;
-     color: #1d1d1f;
- }
+.resume-ul {
+    list-style-type: none;
+    padding: 0;
+}
 
- .experience-item__role {
-     color: #515154;
- }
+.resume-li {
+    margin-bottom: 1rem;
+}
 
- .experience-item__year {
-     color: #86868b;
- }
+.resume-experience-item__company {
+    font-weight: 600;
+    color: #1d1d1f;
+}
 
- @media (max-width: 768px) {
-     .vincent-profile {
-         flex-direction: column;
-         padding: 2rem 1rem;
-     }
+.resume-experience-item__role {
+    color: #515154;
+}
 
-     .vincent-profile__intro,
-     .vincent-profile__experience {
-         margin-bottom: 2rem;
-     }
- }
+.resume-experience-item__year {
+    color: #86868b;
+}
+
+@media (max-width: 768px) {
+    .resume-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .resume-section {
+        padding: 1.5rem;
+    }
+}
+
+ .social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #333;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #007bff;
+}
+
