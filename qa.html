@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent | Q&A</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 17px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            background-color: #fbfbfd;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+
+        button {
+            background-color: #0071e3;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 980px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0077ed;
+        }
+
+        #response-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+
+        #submitted-questions {
+            background-color: #fff;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #submitted-questions h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .question-item {
+            border-bottom: 1px solid #d2d2d7;
+            padding: 20px 0;
+        }
+
+        .question-item:last-child {
+            border-bottom: none;
+        }
+
+        .question-item strong {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            form,
+            #submitted-questions {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Submit Your Question</h1>
+        <form name="submit-to-google-sheet">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Mail" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea id="question" name="Question" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="response-message"></div>
+    </div>
+
+    <div class="container">
+        <div id="submitted-questions">
+            <h2>Submitted Questions</h2>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyH7dOHnR_lQcUQ8EOF_rGo-ga5p1-NBtSR8Zc4P6MCx08PzN8nqYG7ZcCar10RuasDgA/exec';
+        const dataURL = 'https://script.google.com/macros/s/AKfycbxWfUJmUYELm5gqSE_0m7Z6uWJG8Kquf1fKtHre5BXK0zWZtKRdrH3E-r7ttTV5BgPp9Q/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const responseMessage = document.getElementById('response-message');
+        const submittedQuestions = document.getElementById('submitted-questions');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    responseMessage.innerHTML = '<p style="color: #00a86b;">Success! Your question has been submitted.</p>';
+                    form.reset();
+                    fetchData();
+                })
+                .catch(error => {
+                    responseMessage.innerHTML = '<p style="color: #ff3b30;">Error! ' + error.message + '</p>';
+                });
+        });
+
+        function fetchData() {
+            fetch(dataURL)
+                .then(response => response.json())
+                .then(data => {
+                    let questionsHTML = '<h2>Submitted Questions</h2>';
+                    data.forEach(item => {
+                        questionsHTML += `
+                            <div class="question-item">
+                                <p><strong>Name:</strong> ${item.name}</p>
+                                <p><strong>Email:</strong> ${item.email}</p>
+                                <p><strong>Question:</strong> ${item.question}</p>
+                                <p><strong>Answer:</strong> ${item.answer}</p>
+                            </div>
+                        `;
+                    });
+                    submittedQuestions.innerHTML = questionsHTML;
+                })
+                .catch(error => {
+                    submittedQuestions.innerHTML = '<p style="color: #ff3b30;">Error! ' + error.message + '</p>';
+                });
+        }
+
+        // Fetch data on page load
+        fetchData();
+    </script>
+</body>
+
+</html>
