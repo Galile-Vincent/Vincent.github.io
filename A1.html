@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent's Brain</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Blogs.css">
+    <link rel="stylesheet" href="Blog.css">
+    <style>
+        #password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #password-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #password-input {
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        #submit-password {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="password-overlay">
+        <div id="password-form">
+            <h2>Enter Password</h2>
+            <input type="password" id="password-input" placeholder="Enter password">
+            <button id="submit-password">Submit</button>
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="nav-sheet" class="nav-sheet">
+            <div class="nav-sheet-content">
+                <a href="./Intro">Intro</a>
+                <a href="./Award">Award</a>
+                <a href="./Projects">Projects</a>
+                <a href="./Contact">Contact</a>
+                <a href="./Brain">Brain</a>
+            </div>
+        </div>
+
+        <header class="desktop-header">
+            <nav>
+                <a href="./index" class="logo">Vincent</a>
+                <div class="nav-items desktop-nav">
+                    <a href="./Intro">Intro</a>
+                    <a href="./Award">Award</a>
+                    <a href="./Projects">Projects</a>
+                    <a href="./Contact">Contact</a>
+                    <a href="./Brain">Brain</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="blog-container" role="main">
+            <h1 id="day-1" class="blog-title">Day 1</h1>
+
+            <section class="blog-post">
+                <h2>My Latest Project: AI-Powered Task Manager</h2>
+                <p>Posted on August 30, 2024 by Vincent Chiang</p>
+
+                <div class="post-content">
+                    <p>In this project, I developed an AI-powered task manager using SwiftUI and CoreML. Here's a
+                        snippet of the main view:</p>
+
+                    <pre><code class="language-swift">
+struct ContentView: View {
+    @State private var tasks: [Task] = []
+    @State private var newTaskTitle: String = ""
+
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(tasks) { task in
+                    TaskRow(task: task)
+                }
+                .onDelete(perform: deleteTask)
+
+                HStack {
+                    TextField("New task", text: $newTaskTitle)
+                    Button(action: addTask) {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+            }
+            .navigationTitle("AI Task Manager")
+        }
+    }
+
+    func addTask() {
+        let newTask = Task(title: newTaskTitle)
+        tasks.append(newTask)
+        newTaskTitle = ""
+    }
+
+    func deleteTask(at offsets: IndexSet) {
+        tasks.remove(atOffsets: offsets)
+    }
+}
+                    </code></pre>
+
+                    <p>This code creates a simple interface for adding and removing tasks. The AI component (not shown
+                        here) helps in prioritizing and categorizing tasks based on user behavior.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Vincent. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const correctPassword = "09f1oij23&*(FJiqwefkkq)"; // Replace with your desired password
+        const passwordOverlay = document.getElementById('password-overlay');
+        const passwordInput = document.getElementById('password-input');
+        const submitButton = document.getElementById('submit-password');
+        const errorMessage = document.getElementById('error-message');
+        const content = document.getElementById('content');
+
+        submitButton.addEventListener('click', checkPassword);
+        passwordInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            if (passwordInput.value === correctPassword) {
+                passwordOverlay.style.display = 'none';
+                content.style.display = 'block';
+            } else {
+                errorMessage.textContent = 'Incorrect password. Please try again.';
+            }
+        }
+    </script>
+</body>
+
+</html>
