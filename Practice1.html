@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent | Project Details</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Project.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Award">Award</a>
+            <a href="./Projects">Projects</a>
+            <a href="./Practice">Practice</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
+
+    <header class="desktop-header">
+        <nav>
+            <a class="logo" href="./index">Vincent</a>
+            <div class="nav-items desktop-nav">
+                <a href="./Intro">Intro</a>
+                <a href="./Award">Award</a>
+                <a href="./Projects">Projects</a>
+                <a href="./Practice">Practice</a>
+                <a href="./Contact">Contact</a>
+            </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="project-details">
+            <h1 id="project-title">APCS 2017-0304-1秘密差</h1>
+            <p id="project-description">問題描述:</p>
+            <p>
+                將一個十進位正整數的奇數位數的和稱為A ，偶數位數的和稱為B，則A與B的絕對差值 |A －B| 稱為這個正整數的秘密差。
+                例如： 263541 的奇數位和 A = 6+5+1 =12，偶數位的和 B = 2+3+4 = 9 ，所以 263541 的秘密差是 |12 －9|= 3 。
+                給定一個 十進位正整數 X，請找出 X的秘密差。
+            </p>
+
+            <p class="description">Sample input1: 263541&nbsp;&nbsp;&nbsp;&nbsp;Sample output1: 3</p>
+            <p class="description">Sample input2:
+                131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample output2: 1</p>
+
+            <p id="project-description">Thought:</p>
+            <p>
+                Using a char array to read the input as a string makes it easier to access each digit directly using
+                indexing. This
+                avoids the need for operations like <code class="language-javascript">num % 10</code> and <code class="language-javascript">num / 10</code>, which would be
+                necessary if you read the input as an integer.
+            </p>
+
+
+            <!-- Code Block -->
+            <pre><code class="language-javascript">
+/*
+c290. APCS 2017-0304-1秘密差
+https://zerojudge.tw/ShowProblem?problemid=c290
+*/
+
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+    char arr[1000];
+    scanf("%s", arr);
+    int len = strlen(arr);
+    int odd = 0;
+    int even = 0;
+    for (int i = 0; i < len; i++) {
+        int num = arr[i] - '0';
+        if (i % 2 == 0) { // Even
+            even+=num;
+        } else { // Odd
+            odd+=num;
+        }
+    }
+    int ans = even - odd;
+    if (ans < 0) {
+        ans*=-1;
+    }
+    printf("%d", ans);
+    return 0;
+}
+            </code></pre>
+
+            <!-- Links -->
+            <a href="https://zerojudge.tw/ShowProblem?problemid=c290" target="_blank" class="cta-button">Problem
+                Source</a>
+
+            <div id="project-technologies">
+                <h2>My Solution</h2>
+                <a href="https://github.com/Galile-Vincent/Zerojudge/blob/main/c290.c" target="_blank"
+                    class="cta-button">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vincent. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('nav-open');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+                document.body.classList.remove('nav-open');
+            }
+        });
+    </script>
+</body>
+
+</html>
