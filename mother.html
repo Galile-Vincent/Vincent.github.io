@@ -3,29 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Mother's Day</title>
+    <title>Happy Mother's Day - Pampering for Judy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body class="bg-pink-50 flex flex-col items-center justify-center min-h-screen p-4">
+<body class="bg-gradient-to-b from-pink-100 to-purple-200 flex items-center justify-center min-h-screen p-4 overflow-hidden">
+    <canvas id="flowerCanvas"></canvas>
     <div class="max-w-4xl w-full flex justify-center">
-        <!-- Unlimited Massage and Services Card -->
-        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md transform hover:scale-105 transition-transform duration-300">
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-purple-600 mb-4">Unlimited Pampering for Judy</h1>
-                <p class="text-gray-700 text-lg mb-4">
-                    This special card grants you <span class="font-semibold">unlimited massages</span> 
-                    and a full range of services to relax and rejuvenate. 
-                    From soothing spa treatments to helping with anything you need, 
-                    we're here to make every day special for you!
+        <!-- Unlimited Pampering Card -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md transform hover:scale-105 transition-transform duration-500 relative overflow-hidden border-4 border-pink-300">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-purple-500"></div>
+            <div class="text-center relative z-10">
+                <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mb-6">Unlimited Bliss for Judy</h1>
+                <p class="text-gray-800 text-lg mb-6 font-serif leading-relaxed">
+                    Dearest Judy, this enchanted card gifts you <span class="font-bold text-pink-600">unlimited massages</span> 
+                    and a bouquet of luxurious services to pamper your soul. 
+                    From tranquil spa escapes to heartfelt assistance with all you desire, 
+                    let us make every moment bloom with joy!
                 </p>
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                <div class="flex justify-center mb-6">
+                    <svg class="w-16 h-16 text-pink-500 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
                     </svg>
                 </div>
-                <p class="text-gray-600 italic">Redeem anytime, because you deserve it all!</p>
+                <p class="text-gray-600 italic text-sm font-handwritten">Claim this magic anytime, for you deserve endless love!</p>
             </div>
+            <div class="absolute bottom-0 right-0 w-24 h-24 bg-pink-200 rounded-tl-full opacity-50"></div>
         </div>
     </div>
+
+    <script>
+        const canvas = document.getElementById('flowerCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        const flowers = [];
+        const colors = ['#FF9999', '#FFCCFF', '#CC99FF', '#FFCC99'];
+
+        class Flower {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 15 + 10;
+                this.speedY = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = Math.random() * 0.05 - 0.025;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.angle += this.spin;
+                if (this.y > canvas.height + this.size) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    ctx.ellipse(0, 0, this.size / 2, this.size / 4, i * Math.PI / 2.5, 0, Math.PI * 2);
+                }
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 20; i++) {
+            flowers.push(new Flower());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            flowers.forEach(flower => {
+                flower.update();
+                flower.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
 </body>
 </html>
