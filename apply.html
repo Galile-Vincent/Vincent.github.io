@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Vincent's Team | Application</title>
+    <link rel="stylesheet" href="apply.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <a class="logo" href="https://galile-vincent.github.io/Vincent.github.io/index">Vincent</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Join the Team</h1>
+            <p>We're excited to have you apply. Please fill out the form below.</p>
+        </section>
+
+        <section class="intro-section">
+            <div class="intro-container">
+                <div class="intro-content collapsed">
+                    <h2>About the Project: VCook</h2>
+                    <p>VCook aims to solve the problem of cooking for working mothers after work, making cooking easier
+                        and
+                        more convenient.</p>
+                    <p>
+                        <a href="https://apps.apple.com/tw/app/vcook-recipe-cooking-ai/id6742108272?l=en-GB"
+                            target="_blank" class="intro-link" style="color: #007bff;">
+                            <i class="fab fa-app-store-ios"></i> View on App Store
+                        </a>
+                    </p>
+                    <p>We have been recognized by Apple for technology and innovation, but we are facing difficulties in
+                        promotion. I am also learning to build a business model, retain customers, and get
+                        subscriptions. I
+                        need teammates for competitions and to discuss and learn with professionals in these fields.</p>
+
+                    <h3>Requirements</h3>
+                    <p>Some practical experience (projects or competitions) is preferred. Ability is secondary; the key
+                        is
+                        to be passionate about your profession and interested in software business.</p>
+
+                    <p><strong>New Idea:</strong> Also evaluating a simple MVP for an education software.</p>
+
+                    <h3>Vision</h3>
+                    <p>To establish a Studio, aiming to be like MD Studio (迷底科技). Achieving software success
+                        requires passion. Regardless of long-term intent, I hope we can learn from each other and
+                        accumulate
+                        team working experience.</p>
+
+                    <h3>Roles Needed</h3>
+                    <ul>
+                        <li><strong>Marketing / Community Manager:</strong> Promote good products to the right audience.
+                        </li>
+                        <li><strong>UI/UX Designer:</strong> Make the interface more intuitive and easy to use.</li>
+                        <li><strong>Planning / PM / Business Strategy:</strong> Plan growth direction together.</li>
+                    </ul>
+
+                    <h3>Future Plans</h3>
+                    <ul>
+                        <li>Participate in innovation/entrepreneurship competitions (UStart).</li>
+                        <li>Participate in MAIC.</li>
+                    </ul>
+
+                    <h3>What You Can Learn</h3>
+                    <ul>
+                        <li>Opportunity to visit Apple Taiwan headquarters for learning.</li>
+                        <li>Experience in community advertising.</li>
+                        <li>Building and launching an App from 0 to 1.</li>
+                    </ul>
+
+                    <h3>About Me</h3>
+                    <ul>
+                        <li>Apple Swift Student Challenge Winner (2024 / 2025).</li>
+                        <li>VCook App: Apple MAIC Taiwan Most Innovative Award & Greater China First Prize.</li>
+                        <li>JetFi Mobile iOS & n8n engineer.</li>
+                    </ul>
+
+                    <div class="intro-links">
+                        <a href="https://www.linkedin.com/in/hung-yeh-chiang" target="_blank" class="intro-link"
+                            style="color: #0077b5;">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="mailto:vincent.ua.248@gmail.com" class="intro-link" style="color: #ea4335;">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                    </div>
+                    <div class="intro-overlay">
+                        <button class="expand-button" onclick="toggleIntro()">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="form-container">
+                <form id="application-form" action="https://servicetest.jetfimobile.com/webhook/apply" method="POST">
+
+                    <!-- Contact Email -->
+                    <div class="form-group">
+                        <label for="email">Your Contact Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+
+                    <!-- Major -->
+                    <div class="form-group">
+                        <label for="major">Major <span class="required">*</span></label>
+                        <input type="text" id="major" name="major" required placeholder="e.g., Computer Science">
+                    </div>
+
+                    <!-- Year in School -->
+                    <div class="form-group">
+                        <label for="year">Year in School <span class="required">*</span></label>
+                        <select id="year" name="year" required>
+                            <option value="">Select your year</option>
+                            <option value="Freshman">Freshman</option>
+                            <option value="Sophomore">Sophomore</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Graduate">Graduate Student</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Why Join -->
+                    <div class="form-group">
+                        <label for="why-join">Why do you want to join the team? <span class="required">*</span></label>
+                        <textarea id="why-join" name="why-join" required rows="4"
+                            placeholder="Tell us what motivates you to join..."></textarea>
+                    </div>
+
+                    <!-- What Can Do -->
+                    <div class="form-group">
+                        <label for="what-do">What can you do in the team? <span class="required">*</span></label>
+                        <textarea id="what-do" name="what-do" required rows="4"
+                            placeholder="Describe your skills and how you can contribute..."></textarea>
+                    </div>
+
+                    <!-- Time Commitment -->
+                    <div class="form-group">
+                        <label for="time-commitment">How much time are you willing to spend on the team? <span
+                                class="required">*</span></label>
+                        <select id="time-commitment" name="time-commitment" required>
+                            <option value="">Select time commitment</option>
+                            <option value="1-5 hours/week">1-5 hours per week</option>
+                            <option value="5-10 hours/week">5-10 hours per week</option>
+                            <option value="10-15 hours/week">10-15 hours per week</option>
+                            <option value="15-20 hours/week">15-20 hours per week</option>
+                            <option value="20+ hours/week">20+ hours per week</option>
+                        </select>
+                    </div>
+
+                    <!-- AI Opinion -->
+                    <div class="form-group">
+                        <label for="ai-opinion">What do you think about AI? <span class="required">*</span></label>
+                        <textarea id="ai-opinion" name="ai-opinion" required rows="4"
+                            placeholder="Share your thoughts on AI and its impact..."></textarea>
+                    </div>
+
+                    <!-- AI Tools -->
+                    <div class="form-group">
+                        <label>Which AI are you using? <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ai-tools" value="ChatGPT">
+                                <span>ChatGPT</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ai-tools" value="Claude">
+                                <span>Claude</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ai-tools" value="Grok">
+                                <span>Grok</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ai-tools" value="Gemini">
+                                <span>Gemini</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ai-tools" value="Deepseek">
+                                <span>Deepseek</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Devices -->
+                    <div class="form-group">
+                        <label>Which device do you have? (Optional)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="devices" value="iPhone">
+                                <span>iPhone</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="devices" value="Macbook">
+                                <span>Macbook</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="devices" value="iPad">
+                                <span>iPad</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="devices" value="None">
+                                <span>None of the above</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Resume Link -->
+                    <div class="form-group">
+                        <label for="resume">Resume Link (Optional)</label>
+                        <input type="url" id="resume" name="resume-link"
+                            placeholder="https://drive.google.com/... or link to your resume">
+                        <small>Share a link to your resume (Google Drive, Dropbox, personal website, etc.)</small>
+                    </div>
+
+                    <!-- Additional Comments -->
+                    <div class="form-group">
+                        <label for="additional">Other things you want to tell Vincent (Optional)</label>
+                        <textarea id="additional" name="additional" rows="4"
+                            placeholder="Any additional information you'd like to share..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">Submit Application</button>
+                    </div>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Application Submitted!</h2>
+                    <p>Thank you for your application. Vincent will review it and get back to you soon.</p>
+                    <a href="https://galile-vincent.github.io/Vincent.github.io/index" class="back-button">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vincent. All rights reserved.</p>
+    </footer>
+
+    <script src="apply.js"></script>
+</body>
+
+</html>
