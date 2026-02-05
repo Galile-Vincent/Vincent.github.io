@@ -12,7 +12,7 @@
 }
 .description{
     margin-bottom: 15px;
-    color: #6e6e73;
+    color: var(--muted);
     font-size: 12px;
     line-height: 1.3333733333;
     font-weight: 600;
@@ -20,14 +20,14 @@
 
 .project-details img {
     width: 100%;
-    border-radius: 18px;
+    border-radius: var(--radius);
     margin-bottom: 30px;
 }
 
 .project-details p {
     font-size: 18px;
     line-height: 1.6;
-    color: #1d1d1f;
+    color: var(--text);
     margin-bottom: 30px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #tech-list li {
-    background-color: #f5f5f7;
+    background-color: var(--bg);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 14px;
@@ -55,17 +55,7 @@
 
 .cta-button {
     display: inline-block;
-    background-color: #0071e3;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 980px;
-    text-decoration: none;
     font-size: 18px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #0077ed;
 }
 .project-details {
     max-width: 800px;
@@ -82,8 +72,8 @@
 
 .project-main-image {
     margin-bottom: 30px;
-    background-color: #000;
-    border-radius: 18px;
+    background-color: #f0f0f2;
+    border-radius: var(--radius);
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -101,7 +91,7 @@
 .project-details p {
     font-size: 18px;
     line-height: 1.6;
-    color: #1d1d1f;
+    color: var(--text);
     margin-bottom: 30px;
 }
 
@@ -121,7 +111,7 @@
 }
 
 #tech-list li {
-    background-color: #f5f5f7;
+    background-color: var(--bg);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 14px;
@@ -149,9 +139,9 @@
     width: calc(33.333% - 10px);
     max-width: 250px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease;
-    background-color: #000;
+    background-color: #f0f0f2;
     padding: 10px;
     object-fit: contain;
 }
@@ -162,17 +152,7 @@
 
 .cta-button {
     display: inline-block;
-    background-color: #0071e3;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 980px;
-    text-decoration: none;
     font-size: 18px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #0077ed;
 }
 
 @media (max-width: 768px) {

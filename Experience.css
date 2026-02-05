@@ -1,19 +1,19 @@
 .experience-hero {
     text-align: center;
     padding: 100px 20px;
-    background-color: #f5f5f7;
+    background-color: var(--bg);
 }
 
 .experience-hero h1 {
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .experience-hero p {
     font-size: 24px;
-    color: #86868b;
+    color: var(--muted);
 }
 
 .experience-timeline {
@@ -30,7 +30,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #d2d2d7;
+    background-color: var(--border);
     transform: translateX(-50%);
 }
 
@@ -46,41 +46,41 @@
     top: 0;
     width: 16px;
     height: 16px;
-    background-color: #0071e3;
+    background-color: var(--text);
     border-radius: 50%;
     transform: translateX(-50%);
 }
 
 .experience-content {
-    background-color: #fff;
-    border-radius: 18px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
     padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .experience-content:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .experience-content h2 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .experience-date {
     font-size: 14px;
-    color: #86868b;
+    color: var(--muted);
     margin-bottom: 10px;
 }
 
 .experience-content p {
     font-size: 16px;
     line-height: 1.5;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .skills {
@@ -94,7 +94,7 @@
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 30px;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .skills-list {
@@ -105,8 +105,8 @@
 }
 
 .skills-list li {
-    background-color: #0071e3;
-    color: #fff;
+    background-color: var(--text);
+    color: var(--accent-contrast);
     padding: 10px 20px;
     border-radius: 20px;
     font-size: 16px;
@@ -114,7 +114,7 @@
 }
 
 .skills-list li:hover {
-    background-color: #0077ed;
+    background-color: var(--accent-hover);
 }
 
 @media (max-width: 768px) {

@@ -1,19 +1,19 @@
 .contact-hero {
     text-align: center;
     padding: 100px 20px;
-    background-color: #f5f5f7;
+    background-color: var(--bg);
 }
 
 .contact-hero h1 {
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .contact-hero p {
     font-size: 24px;
-    color: #86868b;
+    color: var(--muted);
 }
 
 .contact-info {
@@ -26,22 +26,22 @@
 }
 
 .contact-item {
-    background-color: #fff;
-    border-radius: 18px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
     padding: 30px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .contact-item i {
     font-size: 36px;
-    color: #0071e3;
+    color: var(--text);
     margin-bottom: 15px;
 }
 
@@ -49,18 +49,18 @@
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .contact-item a {
     font-size: 18px;
-    color: #0071e3;
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-    color: #0077ed;
+    color: var(--text);
 }
 
 @media (max-width: 768px) {

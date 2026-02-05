@@ -11,7 +11,7 @@
 .blog-title {
     font-size: 36px;
     font-weight: 600;
-    color: #1d1d1f;
+    color: var(--text);
     margin-bottom: 40px;
     text-align: center;
 }
@@ -30,9 +30,9 @@
 }
 
 .blog-preview {
-    background-color: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     margin-bottom: 30px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -40,7 +40,7 @@
 
 .blog-preview:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .blog-preview h2 {
@@ -50,45 +50,45 @@
 }
 
 .blog-preview h2 a {
-    color: #1d1d1f;
+    color: var(--text);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .blog-preview h2 a:hover {
-    color: #0071e3;
+    color: var(--accent-hover);
 }
 
 .post-meta {
     font-size: 14px;
-    color: #86868b;
+    color: var(--muted);
     margin-bottom: 10px;
 }
 
 .post-excerpt {
     font-size: 16px;
-    color: #515154;
+    color: var(--muted);
     line-height: 1.5;
 }
 
 .blog-post {
-    background-color: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     padding: 30px;
 }
 
 .blog-post h1 {
     font-size: 32px;
     font-weight: 600;
-    color: #1d1d1f;
+    color: var(--text);
     margin-bottom: 10px;
 }
 
 .post-content {
     font-size: 16px;
     line-height: 1.6;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 .post-content p {
@@ -96,7 +96,7 @@
 }
 
 .post-content pre {
-    background-color: #f5f5f7;
+    background-color: var(--bg);
     border-radius: 8px;
     padding: 20px;
     overflow-x: auto;

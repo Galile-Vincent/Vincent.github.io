@@ -1,8 +1,8 @@
 .expertise-hero {
     text-align: center;
     padding: 100px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #d2d2d7;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
 }
 
 .expertise-hero h1 {
@@ -13,7 +13,7 @@
 
 .expertise-hero p {
     font-size: 24px;
-    color: #86868b;
+    color: var(--muted);
 }
 
 .expertise-list {
@@ -26,16 +26,16 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: 40px;
-    background-color: #fff;
-    border-radius: 18px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
     padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .expertise-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .expertise-icon {
@@ -57,7 +57,7 @@
 .expertise-details p {
     font-size: 16px;
     line-height: 1.5;
-    color: #1d1d1f;
+    color: var(--text);
 }
 
 @media (max-width: 768px) {
@@ -84,7 +84,7 @@
 .expertise-details .details-hidden {
     display: none;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: var(--bg);
     border-radius: 8px;
     margin-top: 10px;
     transition: display 0.3s ease;

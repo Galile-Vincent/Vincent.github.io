@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincent | Q&A</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap">
     <style>
@@ -12,8 +14,8 @@
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.47059;
             letter-spacing: -0.022em;
         }
@@ -32,10 +34,10 @@
         }
 
         form {
-            background-color: #fff;
-            border-radius: 18px;
+            background-color: var(--surface);
+            border-radius: var(--radius);
             padding: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             margin-bottom: 40px;
         }
 
@@ -48,7 +50,7 @@
             font-size: 17px;
             font-weight: 500;
             margin-bottom: 8px;
-            color: #1d1d1f;
+            color: var(--text);
         }
 
         input[type="email"],
@@ -57,7 +59,7 @@
             width: 100%;
             padding: 12px;
             font-size: 17px;
-            border: 1px solid #d2d2d7;
+            border: 1px solid var(--border);
             border-radius: 8px;
             background-color: #fbfbfd;
             transition: border-color 0.3s ease;
@@ -67,12 +69,12 @@
         input[type="text"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #0071e3;
+            border-color: var(--text);
         }
 
         button {
-            background-color: #0071e3;
-            color: #fff;
+            background-color: var(--accent);
+            color: var(--accent-contrast);
             font-size: 17px;
             font-weight: 500;
             padding: 12px 24px;
@@ -83,7 +85,7 @@
         }
 
         button:hover {
-            background-color: #0077ed;
+            background-color: var(--accent-hover);
         }
 
         #response-message {
@@ -93,10 +95,10 @@
         }
 
         #submitted-questions {
-            background-color: #fff;
-            border-radius: 18px;
+            background-color: var(--surface);
+            border-radius: var(--radius);
             padding: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         #submitted-questions h2 {
@@ -106,7 +108,7 @@
         }
 
         .question-item {
-            border-bottom: 1px solid #d2d2d7;
+            border-bottom: 1px solid var(--border);
             padding: 20px 0;
         }
 
