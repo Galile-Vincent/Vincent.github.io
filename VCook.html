@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent | VCook</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Project.css">
+</head>
+
+<body>
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Award">Award</a>
+            <a href="./Projects">Projects</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
+
+    <header class="desktop-header">
+        <nav>
+            <a class="logo" href="./index">Vincent</a>
+            <div class="nav-items desktop-nav">
+                <a href="./Intro">Intro</a>
+                <a href="./Award">Award</a>
+                <a href="./Projects">Projects</a>
+                <a href="./Contact">Contact</a>
+            </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-details">
+            <h1 id="project-title">VCook</h1>
+            <img id="project-image" src="img/vc_all.png" alt="VCook overview">
+            <p id="project-description">VCook is an intelligent cooking companion designed to make preparing meals
+                simple, fun, and personalized. Using on-device AI, VCook generates customized recipes based on your
+                available ingredients, health data, exercise activity and dietary preferences. Whether you're missing a
+                key ingredient or want a healthier option, VCook offers smart substitute suggestions and step-by-step
+                guidance, complete with timers and tips. With voice control and gesture-based navigation, you can
+                confidently cook without having to touch your device, even with messy hands. Developed by Taiwanese iOS
+                engineer Vincet Chiang, VCook won the First Prize at the 2025 Mobile Application Innovation Contest
+                (MAIC) for its innovative use of AI to transform everyday cooking.</p>
+
+            <section class="project-details">
+                <h1 id="project-title">Home</h1>
+                <div class="project-main-image">
+                    <img id="project-image" src="img/vc_home_page.png" alt="VCook home screen">
+                </div>
+                <p class="description">Personalized recipes and smart ingredient guidance at a glance.</p>
+
+                <h1 id="project-title">Cooking</h1>
+                <div class="project-main-image">
+                    <img id="project-image" src="img/vc_cooking_page.png" alt="VCook cooking screen">
+                </div>
+                <p class="description">Step-by-step cooking with timers, tips, and hands-free controls.</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span class="js-copyright-year" data-start-year="2025"></span> Vincent. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('nav-open');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+                document.body.classList.remove('nav-open');
+            }
+        });
+    </script>
+    <script src="site.js"></script>
+</body>
+
+</html>

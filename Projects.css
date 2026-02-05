@@ -28,6 +28,11 @@
     object-fit: cover;
 }
 
+.project-item--vcook img {
+    object-fit: contain;
+    background: #f5f5f7;
+}
+
 .project-item h2 {
     font-size: 24px;
     font-weight: 600;
