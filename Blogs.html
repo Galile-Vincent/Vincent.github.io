@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vincent | Projects</title>
+    <title>Vincent | Blog</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="Home.css">
-    <link rel="stylesheet" href="Projects.css">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Blogs.css">
 </head>
 
 <body>
@@ -21,6 +20,7 @@
             <a href="./Contact">Contact</a>
         </div>
     </div>
+
     <header class="desktop-header">
         <nav>
             <a class="logo" href="./index">Vincent</a>
@@ -37,30 +37,16 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>My Projects</h1>
-            <p>Explore my latest work, products, and engineering craft.</p>
+    <main class="blog-shell">
+        <section class="blog-hero">
+            <p class="blog-kicker">Writing</p>
+            <h1>Notes on Building, Design, and Engineering Craft</h1>
+            <p class="blog-subtitle">Readable cards, premium motion, and markdown-powered articles hosted from GitHub Raw.</p>
         </section>
 
-        <section class="projects-grid">
-            <a href="./VCook" class="project-item project-item--vcook">
-                <img src="img/vc_all.png" alt="VCook">
-                <h2>VCook</h2>
-                <p>AI-powered cooking companion with smart recipes and hands-free guidance.</p>
-            </a>
-
-            <a href="./MyGoal" class="project-item">
-                <img src="img/MyGoal_Cover.png" alt="Project 1">
-                <h2>MyGoal App</h2>
-                <p>A mindful goal-setting app focused on clarity, reflection, and long-term growth.</p>
-            </a>
-
-            <a href="./Blogs" class="project-item project-item--blog">
-                <img src="img/vc.jpeg" alt="Blog writing and engineering stories">
-                <h2>Blog</h2>
-                <p>Product notes, iOS lessons, and build stories sourced from Markdown in GitHub.</p>
-            </a>
+        <section class="blog-feed">
+            <div id="blog-list" class="blog-grid" aria-live="polite"></div>
+            <p id="blog-empty" class="blog-empty" hidden>No posts found yet. Add entries in <code>blogs.json</code>.</p>
         </section>
     </main>
 
@@ -80,6 +66,7 @@
         });
     </script>
     <script src="site.js"></script>
+    <script src="blog.js"></script>
 </body>
 
 </html>
