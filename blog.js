@@ -10,17 +10,47 @@
       .replace(/'/g, '&#39;');
   }
 
-  function inlineMarkdown(text) {
+  function decodeEntities(text) {
+    return String(text)
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, '\'');
+  }
+
+  function resolveMarkdownAssetUrl(url, markdownUrl) {
+    if (!url) return '';
+    if (/^(https?:|mailto:|tel:|data:|#)/i.test(url)) return url;
+    if (!markdownUrl) return url;
+    try {
+      return new URL(url, markdownUrl).href;
+    } catch (error) {
+      return url;
+    }
+  }
+
+  function inlineMarkdown(text, options) {
+    var markdownUrl = options && options.markdownUrl ? options.markdownUrl : '';
     var escaped = escapeHtml(text);
     return escaped
       .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function (match, alt, src) {
+        var resolvedSrc = resolveMarkdownAssetUrl(decodeEntities(src), markdownUrl);
+        return '<img src="' + escapeHtml(resolvedSrc) + '" alt="' + alt + '" loading="lazy">';
+      })
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (match, label, href) {
+        var resolvedHref = resolveMarkdownAssetUrl(decodeEntities(href), markdownUrl);
+        if (/^https?:\/\//i.test(resolvedHref)) {
+          return '<a href="' + escapeHtml(resolvedHref) + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+        }
+        return '<a href="' + escapeHtml(resolvedHref) + '">' + label + '</a>';
+      })
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/\*([^*]+)\*/g, '<em>$1</em>');
   }
 
-  function markdownToHtml(markdown) {
+  function markdownToHtml(markdown, options) {
     var lines = String(markdown || '').replace(/\r/g, '').split('\n');
     var html = [];
     var i = 0;
@@ -61,7 +91,7 @@
       var heading = line.match(/^(#{1,6})\s+(.*)$/);
       if (heading) {
         var level = heading[1].length;
-        html.push('<h' + level + '>' + inlineMarkdown(heading[2].trim()) + '</h' + level + '>');
+        html.push('<h' + level + '>' + inlineMarkdown(heading[2].trim(), options) + '</h' + level + '>');
         i += 1;
         continue;
       }
@@ -78,7 +108,7 @@
           quote.push(lines[i].replace(/^>\s?/, ''));
           i += 1;
         }
-        html.push('<blockquote>' + inlineMarkdown(quote.join(' ')) + '</blockquote>');
+        html.push('<blockquote>' + inlineMarkdown(quote.join(' '), options) + '</blockquote>');
         continue;
       }
 
@@ -89,7 +119,7 @@
           i += 1;
         }
         html.push('<ol>' + ordered.map(function (item) {
-          return '<li>' + inlineMarkdown(item) + '</li>';
+          return '<li>' + inlineMarkdown(item, options) + '</li>';
         }).join('') + '</ol>');
         continue;
       }
@@ -101,7 +131,7 @@
           i += 1;
         }
         html.push('<ul>' + unordered.map(function (item) {
-          return '<li>' + inlineMarkdown(item) + '</li>';
+          return '<li>' + inlineMarkdown(item, options) + '</li>';
         }).join('') + '</ul>');
         continue;
       }
@@ -118,7 +148,7 @@
         paragraph.push(lines[i].trim());
         i += 1;
       }
-      html.push('<p>' + inlineMarkdown(paragraph.join(' ')) + '</p>');
+      html.push('<p>' + inlineMarkdown(paragraph.join(' '), options) + '</p>');
     }
 
     if (inCode) pushCodeBlock();
@@ -258,14 +288,19 @@
     document.getElementById('blog-article-date').textContent = formatDate(post.publishDate);
 
     var image = document.getElementById('blog-article-image');
-    image.src = post.image;
-    image.alt = post.title;
+    if (post.image) {
+      image.src = post.image;
+      image.alt = post.title;
+      image.parentElement.hidden = false;
+    } else {
+      image.parentElement.hidden = true;
+    }
 
     try {
       var markdownResponse = await fetch(post.markdownUrl, { cache: 'no-store' });
       if (!markdownResponse.ok) throw new Error('Unable to load markdown from remote source.');
       var markdown = await markdownResponse.text();
-      document.getElementById('blog-markdown').innerHTML = markdownToHtml(markdown);
+      document.getElementById('blog-markdown').innerHTML = markdownToHtml(markdown, { markdownUrl: post.markdownUrl });
     } catch (error) {
       renderError('Could not load markdown content. Check the markdown URL in blogs.json.', '#blog-markdown');
     }
