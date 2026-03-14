@@ -12,23 +12,23 @@
     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="content-loading">
     <div id="nav-sheet" class="nav-sheet">
         <div class="nav-sheet-content">
-            <a href="./Intro">Intro</a>
-            <a href="./Award">Award</a>
-            <a href="./Projects">Projects</a>
-            <a href="./Contact">Contact</a>
+            <a href="./Intro.html">Intro</a>
+            <a href="./Award.html">Award</a>
+            <a href="./Projects.html">Projects</a>
+            <a href="./Contact.html">Contact</a>
         </div>
     </div>
     <header class="desktop-header">
         <nav>
-            <a class="logo" href="./index">Vincent</a>
+            <a class="logo" href="./">Vincent</a>
             <div class="nav-items desktop-nav">
-                <a href="./Intro">Intro</a>
-                <a href="./Award">Award</a>
-                <a href="./Projects">Projects</a>
-                <a href="./Contact">Contact</a>
+                <a href="./Intro.html">Intro</a>
+                <a href="./Award.html">Award</a>
+                <a href="./Projects.html">Projects</a>
+                <a href="./Contact.html">Contact</a>
             </div>
             <button id="nav-toggle" aria-label="Toggle Navigation">
                 <span></span>
@@ -38,25 +38,26 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>My Projects</h1>
-            <p>Explore my latest work, products, and engineering craft.</p>
+        <div class="page-loader" role="status" aria-live="polite">Loading content...</div>
+        <section class="hero" data-dynamic-root>
+            <h1 id="projects-title">My Projects</h1>
+            <p id="projects-subtitle">Explore my latest work, products, and engineering craft.</p>
         </section>
 
-        <section class="projects-grid">
-            <a href="./VCook" class="project-item project-item--vcook">
+        <section id="projects-grid" class="projects-grid" data-dynamic-root>
+            <a href="./VCook.html" class="project-item project-item--vcook">
                 <img src="img/vc_all.png" alt="VCook">
                 <h2>VCook</h2>
                 <p>AI-powered cooking companion with smart recipes and hands-free guidance.</p>
             </a>
 
-            <a href="./MyGoal" class="project-item">
+            <a href="./MyGoal.html" class="project-item">
                 <img src="img/MyGoal_Cover.png" alt="Project 1">
                 <h2>MyGoal App</h2>
                 <p>A mindful goal-setting app focused on clarity, reflection, and long-term growth.</p>
             </a>
 
-            <a href="./Blogs" class="project-item project-item--blog">
+            <a href="./Blogs.html" class="project-item project-item--blog">
                 <img src="img/vc.jpeg" alt="Blog writing and engineering stories">
                 <h2>Blog</h2>
                 <p>Product notes, iOS lessons, and build stories sourced from Markdown in GitHub.</p>
@@ -80,6 +81,7 @@
         });
     </script>
     <script src="site.js"></script>
+    <script src="projects-content.js"></script>
 </body>
 
 </html>

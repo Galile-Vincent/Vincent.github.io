@@ -1,5 +1,4 @@
 {
-  "raw_base_url": "https://raw.githubusercontent.com/Galile-Vincent/SCTC_Sources/main",
   "blogs": [
     {
       "id": "sctc-sources-overview",
@@ -7,7 +6,7 @@
       "title": "How I Structure Public Content Sources",
       "intro": "A practical architecture for modular JSON + Markdown content, designed for maintainable web publishing.",
       "image_link": "img/vc_home_page.png",
-      "markdown_path": "README.md"
+      "markdown_url": "https://raw.githubusercontent.com/Galile-Vincent/SCTC_Sources/main/README.md"
     },
     {
       "id": "vcook-engineering-notes",

@@ -6,6 +6,29 @@ body {
     position: relative;
 }
 
+[data-dynamic-root] {
+    opacity: 1;
+    transition: opacity 220ms ease;
+}
+
+body.content-loading [data-dynamic-root] {
+    opacity: 0;
+}
+
+.page-loader {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 0.01em;
+}
+
+body.content-loading .page-loader {
+    display: flex;
+}
+
 .desktop-header {
     top: 0;
     z-index: 1000;

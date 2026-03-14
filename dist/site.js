@@ -1,5 +1,10 @@
 (function () {
   var EASE_OUT_QUINT = 'cubic-bezier(0.22, 1, 0.36, 1)';
+  var CONTENT_REPO = {
+    owner: 'Galile-Vincent',
+    repo: 'VC_Blog',
+    branch: 'main'
+  };
 
   function toDate(value) {
     if (!value) return null;
@@ -69,6 +74,30 @@
     return link;
   }
 
+  function normalizeInternalPageHref(href) {
+    if (!href) return href;
+    if (/^(https?:|mailto:|tel:|#)/i.test(href)) return href;
+    if (/\.html(?:[?#]|$)/i.test(href)) return href;
+    if (/^\.\/index(?:[?#].*)?$/i.test(href)) {
+      return href.replace(/^\.\/index/i, './');
+    }
+    if (/^\.\/[A-Za-z0-9_-]+(?:[?#].*)?$/.test(href)) {
+      return href.replace(/^(\.\/[A-Za-z0-9_-]+)(.*)$/, '$1.html$2');
+    }
+    return href;
+  }
+
+  function normalizeInternalPageLinks() {
+    var links = document.querySelectorAll('a[href]');
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      var normalized = normalizeInternalPageHref(href);
+      if (normalized && normalized !== href) {
+        link.setAttribute('href', normalized);
+      }
+    });
+  }
+
   function hasBlogLink(container) {
     if (!container) return false;
     var links = container.querySelectorAll('a');
@@ -83,7 +112,7 @@
     containers.forEach(function (container) {
       if (hasBlogLink(container)) return;
 
-      var blogLink = createNavLink('./Blogs', 'Blog');
+      var blogLink = createNavLink('./Blogs.html', 'Blog');
       var contactLink = Array.prototype.find.call(container.querySelectorAll('a'), function (link) {
         return (link.textContent || '').trim().toLowerCase() === 'contact';
       });
@@ -144,7 +173,76 @@
     });
   }
 
+  function isAbsoluteUrl(url) {
+    return /^(https?:|mailto:|tel:|data:|#)/i.test(String(url || ''));
+  }
+
+  function trimSlashes(path) {
+    return String(path || '').replace(/^\/+|\/+$/g, '');
+  }
+
+  function getRawBaseUrl() {
+    return 'https://raw.githubusercontent.com/' + CONTENT_REPO.owner + '/' + CONTENT_REPO.repo + '/' + CONTENT_REPO.branch;
+  }
+
+  function toRawUrl(path) {
+    var cleanPath = trimSlashes(path);
+    return getRawBaseUrl() + (cleanPath ? '/' + cleanPath : '');
+  }
+
+  function resolveAssetUrl(url, sourceType) {
+    if (!url) return '';
+    if (isAbsoluteUrl(url)) return url;
+
+    var cleanUrl = String(url).replace(/^\.\//, '');
+    if (sourceType === 'remote') {
+      return toRawUrl(cleanUrl);
+    }
+    return cleanUrl;
+  }
+
+  async function loadRepoJson(path, fallbackPath) {
+    var remoteUrl = toRawUrl(path);
+
+    try {
+      var remoteResponse = await fetch(remoteUrl, { cache: 'no-store' });
+      if (remoteResponse.ok) {
+        return {
+          data: await remoteResponse.json(),
+          sourceType: 'remote',
+          remoteUrl: remoteUrl
+        };
+      }
+    } catch (remoteError) {
+      // Ignore and fallback locally.
+    }
+
+    if (!fallbackPath) {
+      throw new Error('Unable to load remote JSON and no fallback path was provided.');
+    }
+
+    var fallbackResponse = await fetch(fallbackPath, { cache: 'no-store' });
+    if (!fallbackResponse.ok) {
+      throw new Error('Unable to load fallback JSON from ' + fallbackPath);
+    }
+
+    return {
+      data: await fallbackResponse.json(),
+      sourceType: 'local',
+      remoteUrl: remoteUrl
+    };
+  }
+
+  window.VCPublicContent = {
+    repo: CONTENT_REPO,
+    getRawBaseUrl: getRawBaseUrl,
+    toRawUrl: toRawUrl,
+    resolveAssetUrl: resolveAssetUrl,
+    loadRepoJson: loadRepoJson
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
+    normalizeInternalPageLinks();
     injectBlogNavLink();
     setExperienceDurations();
     setCopyrightYears();

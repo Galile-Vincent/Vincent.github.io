@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="content-loading">
     <div id="nav-sheet" class="nav-sheet">
         <div class="nav-sheet-content">
             <a href="./Intro">Intro</a>
@@ -46,11 +46,12 @@
     
 
     <main>
-        <section class="intro-hero" data-aos="fade-up">
+        <div class="page-loader" role="status" aria-live="polite">Loading content...</div>
+        <section class="intro-hero" data-aos="fade-up" data-dynamic-root>
             <div class="intro-content">
-                <h1>Hung-Yeh Chiang</h1>
-                <p class="subtitle">Vincent</p>
-                <div class="social-links">
+                <h1 id="intro-name">Hung-Yeh Chiang</h1>
+                <p id="intro-subtitle" class="subtitle">Vincent</p>
+                <div id="intro-social-links" class="social-links">
                     <a href="https://www.linkedin.com/in/hung-yeh-chiang" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -65,10 +66,10 @@
                     </a>
                 </div>
             </div>
-            <img src="img/vc.jpeg" alt="Vincent" class="profile-image">
+            <img id="intro-profile-image" src="img/vc.jpeg" alt="Vincent" class="profile-image">
         </section>
         
-        <section class="intro-text" data-aos="fade-up">
+        <section id="intro-text-content" class="intro-text" data-aos="fade-up" data-dynamic-root>
             <p>My name is HungYeh Chiang, and I hail from NeiHu Senior High School's Computer Science Special Class.
                 This marks the inception of my coding journey. My fascination with coding ignited in 2022 upon delving
                 into the stories of tech visionaries such as Elon Musk and Steve Jobs, who have remained my idols ever
@@ -115,6 +116,7 @@
 </script>
 
     <script src="site.js"></script>
+    <script src="intro-content.js"></script>
 </body>
 
 </html>

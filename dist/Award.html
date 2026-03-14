@@ -11,24 +11,24 @@
     <link rel="stylesheet" href="Award.css">
 </head>
 
-<body>
+<body class="content-loading">
     <div id="nav-sheet" class="nav-sheet">
         <div class="nav-sheet-content">
-            <a href="./Intro">Intro</a>
-            <a href="./Award">Award</a>
-            <a href="./Projects">Projects</a>
-            <a href="./Contact">Contact</a>
+            <a href="./Intro.html">Intro</a>
+            <a href="./Award.html">Award</a>
+            <a href="./Projects.html">Projects</a>
+            <a href="./Contact.html">Contact</a>
         </div>
     </div>
     
     <header class="desktop-header">
         <nav>
-            <a class="logo" href="./index">Vincent</a>
+            <a class="logo" href="./">Vincent</a>
             <div class="nav-items desktop-nav">
-                <a href="./Intro">Intro</a>
-                <a href="./Award">Award</a>
-                <a href="./Projects">Projects</a>
-                <a href="./Contact">Contact</a>
+                <a href="./Intro.html">Intro</a>
+                <a href="./Award.html">Award</a>
+                <a href="./Projects.html">Projects</a>
+                <a href="./Contact.html">Contact</a>
             </div>
             <button id="nav-toggle" aria-label="Toggle Navigation">
                 <span></span>
@@ -38,12 +38,13 @@
     </header>
 
     <main>
-        <section class="award-hero animate-item">
-            <h1>Awards & Achievements</h1>
-            <p>Recognizing excellence in technology and innovation</p>
+        <div class="page-loader" role="status" aria-live="polite">Loading content...</div>
+        <section class="award-hero animate-item" data-dynamic-root>
+            <h1 id="awards-title">Awards & Achievements</h1>
+            <p id="awards-subtitle">Recognizing excellence in technology and innovation</p>
         </section>
 
-        <section class="awards-list">
+        <section id="awards-list" class="awards-list" data-dynamic-root>
 
             <div class="award-item animate-item">
                 <div class="award-icon">🏆</div>
@@ -151,27 +152,8 @@
         }
     });
 </script>
-<script>
-    // Simple scroll animation using Intersection Observer
-    const animateItems = document.querySelectorAll('.animate-item');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    animateItems.forEach(item => {
-        observer.observe(item);
-    });
-</script>
-
     <script src="site.js"></script>
+    <script src="award-content.js"></script>
 </body>
 
 </html>

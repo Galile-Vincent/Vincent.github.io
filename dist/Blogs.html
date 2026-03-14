@@ -11,24 +11,24 @@
     <link rel="stylesheet" href="Blogs.css">
 </head>
 
-<body>
+<body class="content-loading">
     <div id="nav-sheet" class="nav-sheet">
         <div class="nav-sheet-content">
-            <a href="./Intro">Intro</a>
-            <a href="./Award">Award</a>
-            <a href="./Projects">Projects</a>
-            <a href="./Contact">Contact</a>
+            <a href="./Intro.html">Intro</a>
+            <a href="./Award.html">Award</a>
+            <a href="./Projects.html">Projects</a>
+            <a href="./Contact.html">Contact</a>
         </div>
     </div>
 
     <header class="desktop-header">
         <nav>
-            <a class="logo" href="./index">Vincent</a>
+            <a class="logo" href="./">Vincent</a>
             <div class="nav-items desktop-nav">
-                <a href="./Intro">Intro</a>
-                <a href="./Award">Award</a>
-                <a href="./Projects">Projects</a>
-                <a href="./Contact">Contact</a>
+                <a href="./Intro.html">Intro</a>
+                <a href="./Award.html">Award</a>
+                <a href="./Projects.html">Projects</a>
+                <a href="./Contact.html">Contact</a>
             </div>
             <button id="nav-toggle" aria-label="Toggle Navigation">
                 <span></span>
@@ -41,12 +41,12 @@
         <section class="blog-hero">
             <p class="blog-kicker">Writing</p>
             <h1>Notes on Building, Design, and Engineering Craft</h1>
-            <p class="blog-subtitle">Readable cards, premium motion, and markdown-powered articles hosted from GitHub Raw.</p>
         </section>
 
-        <section class="blog-feed">
+        <div class="page-loader" role="status" aria-live="polite">Loading content...</div>
+        <section class="blog-feed" data-dynamic-root>
             <div id="blog-list" class="blog-grid" aria-live="polite"></div>
-            <p id="blog-empty" class="blog-empty" hidden>No posts found yet. Add entries in <code>blogs.json</code>.</p>
+            <p id="blog-empty" class="blog-empty" hidden>No posts found yet. Add entries in <code>VC_Blog/blogs.json</code>.</p>
         </section>
     </main>
 

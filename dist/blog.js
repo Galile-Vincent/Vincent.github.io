@@ -1,5 +1,7 @@
 (function () {
-  var BLOGS_JSON_PATH = './blogs.json';
+  function finishPageLoading() {
+    document.body.classList.remove('content-loading');
+  }
 
   function escapeHtml(text) {
     return String(text)
@@ -172,31 +174,42 @@
     });
   }
 
-  function ensureMarkdownUrl(markdownPath, rawBaseUrl) {
+  function ensureMarkdownUrl(markdownPath, sourceType) {
     if (!markdownPath) return '';
     if (/^https?:\/\//i.test(markdownPath)) return markdownPath;
-    if (!rawBaseUrl) return markdownPath;
-    return rawBaseUrl.replace(/\/$/, '') + '/' + markdownPath.replace(/^\//, '');
+
+    if (window.VCPublicContent && sourceType === 'remote') {
+      return window.VCPublicContent.toRawUrl(markdownPath);
+    }
+
+    return markdownPath;
   }
 
-  function normalizePost(post, rawBaseUrl) {
+  function resolveImageUrl(imagePath, sourceType) {
+    if (!imagePath) return '';
+    if (!window.VCPublicContent) return imagePath;
+    return window.VCPublicContent.resolveAssetUrl(imagePath, sourceType);
+  }
+
+  function normalizePost(post, sourceType) {
     return {
       id: String(post.id || post.slug || '').trim(),
       title: toText(post.title || ''),
       intro: toText(post.intro || post.sub_title || ''),
-      image: post.image_link || post.image || 'img/vc.jpeg',
+      image: resolveImageUrl(post.image_link || post.image || 'img/vc.jpeg', sourceType),
       publishDate: post.publish_date || post.date || '',
-      markdownUrl: ensureMarkdownUrl(post.markdown_url || post.markdown_path, rawBaseUrl)
+      markdownUrl: ensureMarkdownUrl(post.markdown_url || post.markdown_path, sourceType)
     };
   }
 
   async function loadBlogData() {
-    var response = await fetch(BLOGS_JSON_PATH, { cache: 'no-store' });
-    if (!response.ok) throw new Error('Failed to load blogs.json');
-    var payload = await response.json();
-    var rawBase = payload.raw_base_url || '';
-    var source = Array.isArray(payload.blogs) ? payload.blogs : [];
-    return source.map(function (post) { return normalizePost(post, rawBase); }).filter(function (post) {
+    var payload = await window.VCPublicContent.loadRepoJson('blogs.json', './blogs.json');
+    var sourceType = payload.sourceType || 'local';
+    var source = Array.isArray(payload.data && payload.data.blogs) ? payload.data.blogs : [];
+
+    return source.map(function (post) {
+      return normalizePost(post, sourceType);
+    }).filter(function (post) {
       return post.id && post.title && post.markdownUrl;
     });
   }
@@ -213,7 +226,7 @@
 
     container.innerHTML = posts.map(function (post) {
       return '' +
-        '<a class="blog-card" href="./Blog?id=' + encodeURIComponent(post.id) + '">' +
+        '<a class="blog-card" href="./Blog.html?id=' + encodeURIComponent(post.id) + '">' +
         '<figure class="blog-card__image-wrap">' +
         '<img src="' + escapeHtml(post.image) + '" alt="' + escapeHtml(post.title) + '" loading="lazy">' +
         '</figure>' +
@@ -309,7 +322,21 @@
   document.addEventListener('DOMContentLoaded', async function () {
     var blogListPage = document.getElementById('blog-list');
     var blogDetailPage = document.getElementById('blog-article');
-    if (!blogListPage && !blogDetailPage) return;
+    if (!blogListPage && !blogDetailPage) {
+      finishPageLoading();
+      return;
+    }
+
+    if (!window.VCPublicContent) {
+      if (blogListPage) {
+        renderError('Missing site loader. Please include site.js before blog.js.', '#blog-list');
+      }
+      if (blogDetailPage) {
+        renderError('Missing site loader. Please include site.js before blog.js.', '#blog-markdown');
+      }
+      finishPageLoading();
+      return;
+    }
 
     try {
       var posts = await loadBlogData();
@@ -317,11 +344,13 @@
       await renderBlogDetail(posts);
     } catch (error) {
       if (blogListPage) {
-        renderError('Unable to load blogs.json. Please verify the file exists and is valid JSON.', '#blog-list');
+        renderError('Unable to load blog data. Please verify blogs.json in VC_Blog or local fallback.', '#blog-list');
       }
       if (blogDetailPage) {
         renderError('Unable to load blog data. Please verify blogs.json and try again.', '#blog-markdown');
       }
+    } finally {
+      finishPageLoading();
     }
   });
 })();
