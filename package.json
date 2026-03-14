@@ -1,0 +1,21 @@
+{
+  "name": "vincent-portfolio-vite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy:cloudflare": "wrangler pages deploy dist --project-name ${CLOUDFLARE_PAGES_PROJECT:-vincent-portfolio}"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.12",
+    "wrangler": "^4.9.1"
+  }
+}
