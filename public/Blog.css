@@ -1,0 +1,130 @@
+/* Existing styles remain unchanged */
+
+/* Updated styles for the blog pages */
+.blog-container {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+
+.blog-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 40px;
+    text-align: center;
+}
+.blog-list a {
+    text-decoration: none;
+    /* Removes the underline */
+    color: inherit;
+    /* Keeps the text color the same as the surrounding text */
+}
+
+.blog-list a:hover {
+    text-decoration: none;
+    /* Ensures no underline on hover */
+    color: inherit;
+    /* Keeps text color consistent on hover */
+}
+
+.blog-preview {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.blog-preview h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.blog-preview h2 a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-preview h2 a:hover {
+    color: var(--accent-hover);
+}
+
+.post-meta {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+.post-excerpt {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.blog-post {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+}
+
+.blog-post h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.post-content pre {
+    background-color: var(--bg);
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.post-content code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        margin-top: 60px;
+    }
+
+    .blog-title {
+        font-size: 28px;
+    }
+
+    .blog-preview,
+    .blog-post {
+        padding: 20px;
+    }
+
+    .blog-preview h2,
+    .blog-post h1 {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent | Experience</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="Experience.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+
+<body>
+    <div id="nav-sheet" class="nav-sheet">
+        <div class="nav-sheet-content">
+            <a href="./Intro">Intro</a>
+            <a href="./Award">Award</a>
+            <a href="./Projects">Projects</a>
+            <a href="./Contact">Contact</a>
+        </div>
+    </div>
+    
+    <header class="desktop-header">
+        <nav>
+            <a class="logo" href="./index">Vincent</a>
+            <div class="nav-items desktop-nav">
+                <a href="./Intro">Intro</a>
+                <a href="./Award">Award</a>
+                <a href="./Projects">Projects</a>
+                <a href="./Contact">Contact</a>
+            </div>
+            <button id="nav-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="experience-hero">
+            <h1>Experience</h1>
+            <p>Driving innovation and fostering collaboration</p>
+        </section>
+
+        <section class="experience-timeline">
+            <div class="experience-item" data-aos="fade-up">
+                <div class="experience-content">
+                    <h2>President, NHSH Robotics Club</h2>
+                    <p class="experience-date">2022 - 2023</p>
+                    <p>Led the robotics club at NeiHu Senior High School, organizing competitions, workshops, and
+                        mentoring fellow students in robotics and programming.</p>
+                </div>
+            </div>
+
+            <div class="experience-item" data-aos="fade-up">
+                <div class="experience-content">
+                    <h2>Team Leader, NHCS Presentation Tech Team</h2>
+                    <p class="experience-date">2022 - 2023</p>
+                    <p>Managed the technical aspects of presentations for school events, improving the quality and
+                        efficiency of multimedia presentations.</p>
+                </div>
+            </div>
+
+            <div class="experience-item" data-aos="fade-up">
+                <div class="experience-content">
+                    <h2>JetFi Mobile App Developement Engineer - iOS</h2>
+                    <p class="experience-date">2024 Summer ~ Now (<span data-experience-start="2024-06-01"></span>)</p>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span class="js-copyright-year" data-start-year="2025"></span> Vincent. All rights reserved.</p>
+    </footer>
+<script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+        document.body.classList.toggle('nav-open');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('#nav-toggle') && !event.target.closest('#nav-sheet')) {
+            document.body.classList.remove('nav-open');
+        }
+    });
+</script>
+<script>
+    AOS.init({
+        duration: 1200, // Duration of the animation in milliseconds
+        easing: 'ease-in-out', // Easing function for the animation
+        once: false, // Animation should happen every time the element comes into view
+        mirror: true // Whether elements should animate out while scrolling past them
+    });
+</script>
+
+    <script src="site.js"></script>
+</body>
+
+</html>
